@@ -25,17 +25,26 @@ export default function TodoList() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
   return (
-    <div>
+    <div className="container mx-auto border-2 border-gray-300 p-4 w-1/2">
       할일은 {todos.length}개!
-      <ul>
+      <ul className="h-64 overflow-y-auto">
         {todos.map((todo) => (
-          <li key={todo.id} onClick={() => deleteTodo(todo.id)}>
+          <li className="" key={todo.id} onClick={() => deleteTodo(todo.id)}>
             {todo.content}
           </li>
         ))}
       </ul>
-      <input type="text" ref={todoInput} />
-      <button onClick={addTodo}>add</button>
+      <input
+        className="border-2 border-black-600 h-10 w-3/4"
+        type="text"
+        ref={todoInput}
+      />
+      <button
+        className="w-1/4 border-2 border-blue h-10 hover:bg-blue-300 hover:text-white"
+        onClick={addTodo}
+      >
+        add
+      </button>
     </div>
   );
 }
